@@ -19,12 +19,14 @@ def check_bmi(h, w):
 
 
 def handle_bmi_check():
-    try:
-        height_cm = float(input("Podaj wzrost w cm: "))
-        weight_kg = float(input("Podaj wage w kg: "))
-        check_bmi(height_cm, weight_kg)
-    except ValueError:
-        print("Podaj wartosc")
+    while True:
+        try:
+            height_cm = float(input("Podaj wzrost w cm: "))
+            weight_kg = float(input("Podaj wage w kg: "))
+            check_bmi(height_cm, weight_kg)
+            break
+        except ValueError:
+            print("Niepoprawna wartosc")
 
 
 handle_bmi_check()
