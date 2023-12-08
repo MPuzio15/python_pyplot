@@ -18,7 +18,7 @@ def what_day_do_we_have(r, m, d):
     return result
 # end def
 
-def five_sundays_a_month(r, m):
+def how_many_sundays_a_month(r, m):
     niedziele = 0
     liczba_dni_w_miesiacu = (0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     liczba_dni_w_miesiacu_rok_przestepny = (0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
@@ -36,4 +36,14 @@ def five_sundays_a_month(r, m):
 # end def
 
 
-print(five_sundays_a_month(rok, miesiac))
+print(how_many_sundays_a_month(rok, miesiac))
+
+months_with_five_sundays = []
+for r in range(1900, 2100):
+    for m in range(1, 13):
+        result = how_many_sundays_a_month(r, m)
+        if result == 5:
+            months_with_five_sundays.append(f'{m}'+'.'+f'{r}')
+print(months_with_five_sundays)
+
+
