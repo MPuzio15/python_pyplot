@@ -3,6 +3,5 @@ import numpy as np
 
 x = np.arange(0, 10, 0.2)
 y = np.sin(x)
-print(y)
 plt.plot(x, y)
 plt.show()
