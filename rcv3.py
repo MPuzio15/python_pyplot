@@ -5,6 +5,7 @@ def rcv():
     # Create socket and bind to address
     UDPSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     UDPSock.bind(('', 1969))
+    print("UDPSock", UDPSock)
 
     # Receive messages
 
