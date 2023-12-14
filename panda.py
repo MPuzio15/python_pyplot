@@ -1,17 +1,16 @@
+import pandas as pd
+import os.path
+
+pd.options.mode.chained_assignment = None  # default='warn'
+
 end = None
 
-import pandas as pd
-import numpy as np
-import sys
-
-################################################################################
+# data frame - dwuwymiarowa tablica
+# shape - zwraca krotke ktora okresla ilosc wierwszy i ilosc kolumn
 
 if __name__ == '__main__':
-
-    fn_inp = 'cbz.xlsx'
-
-    data = pd.read_excel(fn_inp)
-    print(data.head())
+    path_dir = os.path.abspath('cbz.xlsx')
+    data = pd.read_excel(path_dir)
 
     sh = data.shape
     print('wymiary danych:', sh)
@@ -24,12 +23,12 @@ if __name__ == '__main__':
     # dostep do nanych
     for i in range(sh[0]):
         print(data.album[i], data.nazwisko[i] + " " + data.imie[i])
-    end
+    # end
     input()
 
-    # dostep do nanych inaczej
+    # dostep do danych inaczej
     for row in data.itertuples():
-        print(row.album, row.imie)
+        print(row.nazwisko, row.album)
     input()
 
     # wyszukiwanie
@@ -46,15 +45,11 @@ if __name__ == '__main__':
     # ustawienie plci
     for i in range(sh[0]):
         data.plec[i] = ['M', 'K'][data.imie[i][-1] == 'a']
-    end
+    # end
 
     print(data.head(20))
 
     # zapis zmodyfikowanego arkusza
     data.to_excel('nowy.xlsx')
 
-end
-
-################################################################################
-
-# wiecej: https://analityk.edu.pl/python-pandas/
+# end
